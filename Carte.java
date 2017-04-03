@@ -28,7 +28,7 @@ public class Carte implements Comparable<Carte>{
 	* @param c Couleur de la carte
 	*/
 	public Carte(String s, char c)throws java.lang.Exception {
-		if(!Carte.couleurValide(c))
+		if(!this.couleurValide(c))
 		{
 			Exception e = new Exception("Erreur de couleur");
 			throw e;
@@ -46,18 +46,18 @@ public class Carte implements Comparable<Carte>{
 				this.hauteur=sym;
 				}
 			}
-		switch (this.symbole)
+		switch (this.symbole.charAt(0))
 		{
-			case "V":
+			case 'V':
 			this.hauteur=11;
 			break;
-			case "D":
+			case 'D':
 			this.hauteur=12;
 			break;
-			case "R":
+			case 'R':
 			this.hauteur=13;
 			break;
-			case "A":
+			case 'A':
 			this.hauteur=14;
 			break;
 			}
