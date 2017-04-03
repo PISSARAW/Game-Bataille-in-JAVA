@@ -1,68 +1,49 @@
 
 import java.util.*;
-
-/**
- * 
- */
-public class Joueur {
-
+public class Joueur
+{
+	private String pseudo;
+	private int idJoueur;
+	private Main main;
+	/*Constructeur*/
+	public Joueur(String pseudo, int idJoueur, Main main)
+	{
+		this.pseudo=pseudo;
+		this.idJoueur=idJoueur;
+		this.main=main;
+		}
+	/*Getters*/
+	public int getIdJoueur()
+	{
+		return this.idJoueur;
+		}
+	/*Méthodes*/
 	/**
-	 * Default constructor
-	 */
-	public Joueur() {
-	}
-
+	* @return la carte enlever de la main
+	*/
+	public Carte poserCarte()
+	{
+		return this.main.lotDeCarte.pop();
+		}
 	/**
-	 * 
-	 */
-	public String pseudo;
-
+	* @param a HashSet de carte remis dans la main
+	*/
+	public void recupererCartes(HashSet<Carte> a){
+		for(Carte c: a){
+			this.main.lotDeCarte.push(c);
+			}
+		}
 	/**
-	 * 
-	 */
-	public int idJoueur;
-
-	/**
-	 * 
-	 */
-	public Main maMain;
-
-
-
-/**
-	 * 
-	 */
-	public void poserCarte() {
+	* @return true si la main du joueur est vide
+	*/
+	public boolean partiePerdue(){
+		if(main.mainVide()){
+			System.out.println("Vous avez perdu !");
+			return true;
+			}
+		return false;
+		}
+	public void partieGagne(){
 		// TODO implement here
 	}
-
-	/**
-	 * 
-	 */
-	public void recupererCarte() {
-		// TODO implement here
-	}
-
-
-	/**
-	 * 
-	 */
-	public void partiePerdue() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void partieGagne() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void poserCarte() {
-		// TODO implement here
-	}
-
 }
